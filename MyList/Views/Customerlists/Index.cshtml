@@ -1,0 +1,40 @@
+﻿@model IEnumerable<MyList.Models.Customerlist>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Customer List</h1>
+<p>
+    <a asp-action="Add"><i type="button" class="btn btn-success">Add Customer</i></a>
+</p>
+<table class="table">
+    <thead>
+        <tr class="p-3 mb-2 bg-light text-dark">
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Countrylist)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomerName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Countrylist.CountryName)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id"><i class="btn" data-toggle="tooltip" data-placement="top" title="Edit Country"><i class="fa fa-edit"></i></i></a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="text-danger ml-1" onclick="return confirm('Are you sure to delete this record?')"><i class="fa fa-trash"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
