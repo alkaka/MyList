@@ -11,12 +11,8 @@ namespace MyList.Models
         [Display(Name = "Customer Name")]
         public string CustomerName { get; set; }
 
-
         //Navigation properties,
         public int CountryListId { get; set; }
-
-        [Required(ErrorMessage = "Country Name is required")]
-        [Display(Name = "Country Name")]
         public Countrylist Countrylist { get; set; }
     }
 }
